@@ -1,4 +1,4 @@
-# F Prime Port for Microchip DM320113 Eval Board with FreeRTOS
+# F Prime Port for the RP2040 Eval Board with FreeRTOS
 
 This repository contains an F Prime (F') port for Microchips DM320113 demo board, utilizing FreeRTOS for real-time operating system capabilities. The project is cross-compiled using the `xc32` compiler. This project should be included and adapted for any project looking to use this FreeRTOS port. A reference application for how to configure a new project can be seen here: https://github.com/fprime-community/fprime-microchip-DM320113-demo 
 
