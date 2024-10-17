@@ -20,7 +20,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 # Set the compiler flags
 set(CMAKE_C_FLAGS_INIT "-mcpu=cortex-m0plus -mthumb -O2 -D__RP2040__ -D__ARM_ARCH_6M__ -D__FPU_PRESENT=0 -D__ARM_ARCH_ISA_THUMB=1 -D__ARM_ARCH=6M")
 set(CMAKE_CXX_FLAGS_INIT "-mcpu=cortex-m0plus -mthumb -O2 -D__RP2040__ -D__ARM_ARCH_6M__ -D__FPU_PRESENT=0 -D__ARM_ARCH_ISA_THUMB=1 -D__ARM_ARCH=6M")
-set(CMAKE_EXE_LINKER_FLAGS_INIT "-T rp2040.ld -Wl,--gc-sections -Wl,-Map=output.map,--cref -Wl,--start-group -lm -lc -lgcc -Wl,--end-group")
+set(CMAKE_EXE_LINKER_FLAGS_INIT "-T ${PICO_SDK_PATH}/src/rp2_common/pico_standard_link/memmap_default.ld -Wl,--gc-sections -Wl,-Map=output.map,--cref -Wl,--start-group -lm -lc -lgcc -Wl,--end-group")
 
 # Prevent CMake from adding its own -mcpu and -mthumb flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_INIT}" CACHE STRING "Initial C FLAGS" FORCE)
