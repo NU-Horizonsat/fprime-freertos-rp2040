@@ -21,19 +21,28 @@ if(NOT EXISTS "${FREERTOS_INCLUDE_DIR}")
     message(FATAL_ERROR "FreeRTOS include directory not found at ${FREERTOS_INCLUDE_DIR}.")
 endif()
 
+# Initialize the Pico SDK
+include(${CMAKE_CURRENT_LIST_DIR}/platform/pico-sdk/pico_sdk_init.cmake)
+pico_sdk_init()
+
 choose_fprime_implementation(Os/File Os/File/Stub)
 
 include_directories(SYSTEM "${FREERTOS_INCLUDE_DIR}")
 
 # Build FreeRTOS source
 include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/../../Os/freeRTOS")
-include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/FreeRTOS/Source/portable/GCC/SAM/CM7")
+include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/FreeRTOS/Source/portable/GCC/ARM_CM0")
 include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/FreeRTOS/Source/portable/MemMang")
 
 # Add any additional platform-specific settings or libraries as needed
 link_directories(${CMAKE_CURRENT_LIST_DIR}/FreeRTOS/lib)
 
+# Adding Pico SDK
+include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/platform/pico-sdk")
+
 # Add PlatformTypes.h
 include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/types")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/FreeRTOS/Source")
 
+# Link Pico SDK libraries
+target_link_libraries(${TARGET_NAME} pico_stdlib hardware_gpio hardware_spi hardware_i2c)
