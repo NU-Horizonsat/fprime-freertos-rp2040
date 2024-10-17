@@ -1,0 +1,3 @@
+[submodule "cmake/platform/pico-sdk"]
+	path = cmake/platform/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk.git
