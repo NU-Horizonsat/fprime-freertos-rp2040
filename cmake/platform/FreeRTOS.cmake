@@ -45,4 +45,4 @@ include_directories(SYSTEM "${CMAKE_CURRENT_LIST_DIR}/types")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/FreeRTOS/Source")
 
 # Link Pico SDK libraries
-target_link_libraries(${TARGET_NAME} pico_stdlib hardware_gpio hardware_spi hardware_i2c)
+target_link_libraries(${TARGET_NAME} pico_stdlib hardware_gpio hardware_spi hardware_i2c hardware_uart hardware_clock hardware_timer hardware_flash pico_time  pico_util)
