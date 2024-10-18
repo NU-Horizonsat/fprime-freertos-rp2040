@@ -16,10 +16,10 @@ add_definitions(-DFW_ENABLE_TEXT_LOGGING=0)
 set(FPRIME_ENABLE_TEXT_LOGGERS OFF)
 
 # Pico SDK cmake initialization
-set(FPRIME_PICO_SDK_PATH "/usr/local/pico-sdk")
-include(${FPRIME_PICO_SDK_PATH}/pico_sdk_init.cmake)
-pico_sdk_init()
+set(FPRIME_PICO_SDK_PATH "${CMAKE_CURRENT_LIST_DIR}/pico-sdk")
+set(PICO_SDK_PATH "${FPRIME_PICO_SDK_PATH}")
+include(${FPRIME_PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
-# Add the FreeRTOS subdirectory and divcheck
-add_subdirectory(freertos)
-add_subdirectory(divcheck)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+pico_sdk_init()
