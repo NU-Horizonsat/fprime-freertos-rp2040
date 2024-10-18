@@ -1,3 +1,6 @@
 [submodule "cmake/platform/pico-sdk"]
 	path = cmake/platform/pico-sdk
 	url = https://github.com/raspberrypi/pico-sdk.git
+[submodule "cmake/platform/freertos/FreeRTOS-Kernel"]
+	path = cmake/platform/freertos/FreeRTOS-Kernel
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git

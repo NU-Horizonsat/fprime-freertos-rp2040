@@ -20,3 +20,6 @@ set(FPRIME_PICO_SDK_PATH "/usr/local/pico-sdk")
 include(${FPRIME_PICO_SDK_PATH}/pico_sdk_init.cmake)
 pico_sdk_init()
 
+# Add the FreeRTOS subdirectory and divcheck
+add_subdirectory(freertos)
+add_subdirectory(divcheck)
